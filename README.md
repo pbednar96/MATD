@@ -21,11 +21,19 @@ Case insensitive pattern matching.
 
 >python3 brute_force.py
 
-[KMP_search](https://github.com/pbednar96/MATD/blob/master/kmp.py)
+[KMP_search](https://github.com/pbednar96/MATD/blob/master/KMP.py)
 
 >python3 KMP.py
 
 #### 3.CV
+
+[BMH_search](https://github.com/pbednar96/MATD/blob/master/BMH.py)
+
+>python3 BMH.py
+
+[BM_search](https://github.com/pbednar96/MATD/blob/master/BM.py)
+
+>python3 BM.py
 
 ##### Performance
 
