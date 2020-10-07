@@ -25,7 +25,6 @@ def BMH_search(pattern, txt):
         if j == -1:
             print(f"Found pattern at index {i + 1}")
         pos += BMT[ord(txt[pos])]
-    return -1
 
 
 if __name__ == '__main__':
