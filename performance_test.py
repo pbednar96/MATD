@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from brute_force import brute_force
 from DFA_match import DFA_match
 from KMP import KMP_search
+from BMH import BMH_search
 
 if __name__ == '__main__':
 
@@ -12,7 +13,7 @@ if __name__ == '__main__':
         txt = file.read()
     pattern = "ATTCGGGTGGCATCCTCCGGAGAGAGAGAGAGGAAGGAG"
 
-    lst_alg_for_plot = ["DFA", "brute force", "KMP"]
+    lst_alg_for_plot = ["DFA", "brute force", "KMP", "BMH"]
     lst_time_for_plot = []
 
     #DFA
@@ -35,6 +36,13 @@ if __name__ == '__main__':
     end_time = time.time()
     lst_time_for_plot.append(end_time-start_time)
     print(f"KMP done :{end_time - start_time}")
+
+    #BMH
+    start_time = time.time()
+    BMH_search(pattern, txt)
+    end_time = time.time()
+    lst_time_for_plot.append(end_time-start_time)
+    print(f"BMH done :{end_time - start_time}")
 
 
     plt.bar(lst_alg_for_plot, lst_time_for_plot)
