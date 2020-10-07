@@ -11,7 +11,7 @@ def KMP_search(pattern, txt):
         if txt[i] == pattern[j]:
             j += 1
         if j == len_pattern:
-            print("Found pattern at index " + str(i - j))
+            print("Found pattern at index " + str(i - j + 1))
             j = pre_lst[j - 1]
 
 

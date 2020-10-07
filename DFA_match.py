@@ -35,7 +35,7 @@ def DFA_match(pattern, txt):
     for i in range(len_txt):
         state = matrix_path[state][ord(txt[i])]
         if state == len_pattern:
-            print(f"Found pattern at index {format(i - len_pattern + 1)} index")
+            print(f"Found pattern at index {format(i - len_pattern + 1)}")
 
 
 if __name__ == '__main__':
