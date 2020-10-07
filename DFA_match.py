@@ -1,16 +1,15 @@
 import argparse
 import string
 
+NO_OF_CHARS = 256
 
-def next_state(pattern, len_pattern, lst_chars, state, j):
+def next_state(pattern, len_pattern, state, j):
     if state < len_pattern:
-        if j == lst_chars.index(pattern[state]):
+        if j == ord(pattern[state]):
             return state + 1
-
     i = 0
-
     for k in range(state, 0, -1):
-        if lst_chars.index(pattern[k - 1]) == j:
+        if ord(pattern[k - 1]) == j:
             while i < k - 1:
                 if pattern[i] != pattern[state - k + 1 + i]:
                     break
@@ -23,25 +22,18 @@ def next_state(pattern, len_pattern, lst_chars, state, j):
 def DFA_match(pattern, txt):
     len_pattern = len(pattern)
     len_txt = len(txt)
-    # take only lower case char to reduce matrix size
-    lst_chars = list(string.ascii_lowercase)
-
-    # add special characters that weren't in the set
-    lst_others_char = list(txt)
-    for item in list(set(lst_others_char) - set(lst_chars)):
-        lst_chars.append(item)
 
     # create matrix of zeros and calculated path -- matrix[len_pattern +1 , count_char]
-    matrix_path = [[0 for col in range(len(lst_chars))] for row in range(len_pattern + 1)]
+    matrix_path = [[0 for i in range(NO_OF_CHARS)] for _ in range(len_pattern+1)]
 
     for state in range(len_pattern + 1):
-        for j in range(len(lst_chars)):
-            matrix_path[state][j] = next_state(pattern, len_pattern, lst_chars, state, j)
+        for j in range(NO_OF_CHARS):
+            matrix_path[state][j] = next_state(pattern, len_pattern, state, j)
 
     # search phase
     state = 0
     for i in range(len_txt):
-        state = matrix_path[state][lst_chars.index(txt[i])]
+        state = matrix_path[state][ord(txt[i])]
         if state == len_pattern:
             print(f"Found pattern at index {format(i - len_pattern + 1)} index")
 
