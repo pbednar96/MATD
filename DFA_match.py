@@ -20,7 +20,7 @@ def next_state(pattern, len_pattern, lst_chars, state, j):
     return 0
 
 
-def search_pattern(pattern, txt):
+def DFA_match(pattern, txt):
     len_pattern = len(pattern)
     len_txt = len(txt)
     # take only lower case char to reduce matrix size
@@ -47,11 +47,11 @@ def search_pattern(pattern, txt):
 
 
 if __name__ == '__main__':
-    # search_pattern(str("ahoooOj").lower(), str("sdSD2da ahooooj dsda hahoooooojahah ++ahooooj").lower())
+    # DFA_match(str("ahoooOj").lower(), str("sdSD2da ahooooj dsda hahoooooojahah ++ahooooj").lower())
     parser = argparse.ArgumentParser(description="Find String")
     parser.add_argument("pattern", type=str, default="well", help="Pattern to search")
     parser.add_argument("text_for_search", type=str,
                         default="Hi, the script works well. So we will continue tomorrow, well.",
                         help="Text for search pattern")
     args = parser.parse_args()
-    search_pattern(args.pattern.lower(), args.text_for_search.lower())
+    DFA_match(args.pattern.lower(), args.text_for_search.lower())
