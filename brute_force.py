@@ -12,7 +12,7 @@ def brute_force(pattern, txt):
             tmp += 1
 
         if (tmp == len_pattern):
-            print("Pattern found at index ", i)
+            print("Found pattern at index ", i)
 
 if __name__ == '__main__':
     brute_force(str("ahoooOj").lower(), str("sdSD2da ahooooj dsda hahoooooojahah ++ahooooj").lower())
