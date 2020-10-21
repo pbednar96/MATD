@@ -39,4 +39,13 @@ Case insensitive pattern matching.
 
 ![plot_img](https://github.com/pbednar96/MATD/blob/master/plots/performance_plot.png)
 
+#### 4.CV
+
+TODO
+
+#### 5.CV
+TODO
+>python3 extract_data.py
+
+[extract_data](https://github.com/pbednar96/MATD/blob/master/extract_data.py)
 
