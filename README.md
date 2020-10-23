@@ -44,8 +44,13 @@ Case insensitive pattern matching.
 TODO
 
 #### 5.CV
-TODO
+Select data: Reuters newsletter
+Save in dir: /datasets/reut2-0XX.sgm
+
 >python3 extract_data.py
+
+result to output.txt -> [[ TITLE, BODY ], [ TITLE, BODY ],...]
 
 [extract_data](https://github.com/pbednar96/MATD/blob/master/extract_data.py)
 
+TODO: improve text preprocessing !!
