@@ -1,5 +1,6 @@
 import re
 import glob
+import csv
 
 # selected dataset - Reuters newsletter
 
@@ -24,12 +25,28 @@ def extract_text(string):
 
 
 def text_preprocessing(string):
-    string = string[0].lower()
-    list_to_drop = ['&lt;', ">", '&#3;', '\\','"']
+    string = string[0]
+    # if as first is free space and to lower
+    string = string.lstrip().lower()
 
+    # remove \n
+    string = string.replace("\n", " ")
+
+    #remove special marks in text
+    list_to_drop = ['&lt;', '&#3;']
     for i in list_to_drop:
         string = string.replace(i, '')
+
+    # replace HTTP URL to URL
+    string = re.sub(r'http\S+', 'URL', string)
+
+    # drop all others character then aplhabet and numbers
+    string = re.sub(r'[^A-Za-z0-9]', ' ', string)
+
+    # remove multiple space
+    string = ' '.join(string.split())
     return string
+
 
 
 def load_file(filename):
@@ -56,3 +73,6 @@ if __name__ == '__main__':
     with open("output.txt", "w") as file:
         file.write(str(list_of_texts))
 
+    with open("output.csv", "w") as file:
+        writer = csv.writer(file)
+        writer.writerows(list_of_texts)
