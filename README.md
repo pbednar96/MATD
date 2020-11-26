@@ -50,6 +50,7 @@ Save in dir: /datasets/reut2-0XX.sgm
 >python3 extract_data.py
 
 result to output.txt -> [[ TITLE, BODY ], [ TITLE, BODY ],...]
+result to output.csv -> TITLE, BODY 
 
 [extract_data](https://github.com/pbednar96/MATD/blob/master/extract_data.py)
 
