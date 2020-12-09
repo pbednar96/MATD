@@ -54,4 +54,3 @@ result to output.csv -> TITLE, BODY
 
 [extract_data](https://github.com/pbednar96/MATD/blob/master/extract_data.py)
 
-TODO: improve text preprocessing !!
